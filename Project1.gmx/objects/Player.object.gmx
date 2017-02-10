@@ -28,6 +28,8 @@
             <string>/// Initialize the Player object
 
 spd = 4;
+hspd = 0;
+vspd = 0;
 </string>
           </argument>
         </arguments>
@@ -52,7 +54,60 @@ spd = 4;
             <kind>1</kind>
             <string>/// Control the player
 
-control_player();
+// How to call an external script located in scripts/
+// control_player();
+
+var up = keyboard_check(vk_up);
+var right = keyboard_check(vk_right);
+var down = keyboard_check(vk_down);
+var left = keyboard_check(vk_left);
+
+if (up) {
+    vspd = -spd;
+}
+
+if (right) {
+    hspd = spd;
+}
+
+if (down) {
+    vspd = spd;
+}
+
+if (left) {
+    hspd = -spd;
+}
+
+if (!right &amp;&amp; !left) {
+    hspd = 0;
+}
+
+if (!up &amp;&amp; !down) {
+    vspd = 0;
+}
+
+if (place_meeting(x + hspd, y, Solid)) {
+    while (!place_meeting(x + sign(hspd), y, Solid)) {
+        x += sign(hspd);
+    }
+
+    hspd = 0;
+}
+else {
+    x += hspd;
+}
+
+if (place_meeting(x, y + vspd, Solid)) {
+    while (!place_meeting(x, y + sign(vspd), Solid)) {
+        y += sign(vspd);
+    }
+
+    vspd = 0;
+}
+else {
+    y += vspd;
+}
+
 </string>
           </argument>
         </arguments>
