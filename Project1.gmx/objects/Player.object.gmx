@@ -30,6 +30,9 @@
 spd = 4;
 hspd = 0;
 vspd = 0;
+grav = 1.5;
+
+add(3, 5);
 </string>
           </argument>
         </arguments>
@@ -58,20 +61,31 @@ vspd = 0;
 // control_player();
 
 var up = keyboard_check(vk_up);
+var up_released = keyboard_check_released(vk_up);
 var right = keyboard_check(vk_right);
 var down = keyboard_check(vk_down);
 var left = keyboard_check(vk_left);
 
-if (up) {
-    vspd = -spd;
+if (!place_meeting(x, y + 1, Solid)) {
+    vspd += grav;
+    
+    // player has pressed (and released) the up key and
+    // is still traveling up; "dampening" the jump mid-air
+    if (up_released &amp;&amp; vspd &lt; -6) {
+        vspd = -6;
+    }
+}
+else {
+    if (up) {
+        vspd = -16;
+    }
+    else {
+        vspd = 0;
+    }
 }
 
 if (right) {
     hspd = spd;
-}
-
-if (down) {
-    vspd = spd;
 }
 
 if (left) {
@@ -82,15 +96,16 @@ if (!right &amp;&amp; !left) {
     hspd = 0;
 }
 
-if (!up &amp;&amp; !down) {
-    vspd = 0;
-}
-
+// if player is approaching Solid on the x axis
 if (place_meeting(x + hspd, y, Solid)) {
+    // while collision has not occurred on immediate next pixel
     while (!place_meeting(x + sign(hspd), y, Solid)) {
+        // drastically slow player to 1px/step
         x += sign(hspd);
     }
 
+    // when we break out of the while loop, this means a collision
+    // has occurred and the speed should drop to 0
     hspd = 0;
 }
 else {

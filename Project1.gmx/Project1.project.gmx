@@ -26,6 +26,7 @@
     <scripts name="Player">
       <script>scripts\control_player.gml</script>
     </scripts>
+    <script>scripts\add.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Player">
