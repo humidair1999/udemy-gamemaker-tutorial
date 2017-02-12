@@ -32,7 +32,6 @@ hspd = 0;
 vspd = 0;
 grav = 1.5;
 
-add(3, 5);
 </string>
           </argument>
         </arguments>
@@ -96,32 +95,7 @@ if (!right &amp;&amp; !left) {
     hspd = 0;
 }
 
-// if player is approaching Solid on the x axis
-if (place_meeting(x + hspd, y, Solid)) {
-    // while collision has not occurred on immediate next pixel
-    while (!place_meeting(x + sign(hspd), y, Solid)) {
-        // drastically slow player to 1px/step
-        x += sign(hspd);
-    }
-
-    // when we break out of the while loop, this means a collision
-    // has occurred and the speed should drop to 0
-    hspd = 0;
-}
-else {
-    x += hspd;
-}
-
-if (place_meeting(x, y + vspd, Solid)) {
-    while (!place_meeting(x, y + sign(vspd), Solid)) {
-        y += sign(vspd);
-    }
-
-    vspd = 0;
-}
-else {
-    y += vspd;
-}
+move(Solid);
 
 </string>
           </argument>
