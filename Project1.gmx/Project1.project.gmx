@@ -23,10 +23,15 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="Player">
-      <script>scripts\control_player.gml</script>
+    <scripts name="Utils">
+      <script>scripts\move.gml</script>
     </scripts>
-    <script>scripts\move.gml</script>
+    <scripts name="States">
+      <scripts name="Player">
+        <script>scripts\move_state.gml</script>
+        <script>scripts\ledge_grab_state.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Player">
