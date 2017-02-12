@@ -12,6 +12,16 @@ var left = keyboard_check(vk_left);
 if (!place_meeting(x, y + 1, Solid)) {
     vspd += grav;
     
+    sprite_index = spr_player_jump;
+    image_speed = 0;
+    
+    if (vspd > 0) {
+        image_index = 1;
+    }
+    else {
+        image_index = 0;
+    }
+    
     // player has pressed (and released) the up key and
     // is still traveling up; "dampening" the jump mid-air
     if (up_released && vspd < -6) {
@@ -19,6 +29,14 @@ if (!place_meeting(x, y + 1, Solid)) {
     }
 }
 else {
+    if (hspd == 0) {
+        sprite_index = spr_player_idle;
+    }
+    else {
+        sprite_index = spr_player_walk;
+        image_speed = 0.6;
+    }
+
     if (up) {
         vspd = -16;
     }
@@ -27,20 +45,24 @@ else {
     }
 }
 
-if (right) {
-    hspd = spd;
+if (right || left) {
+    hspd += (right - left) * acc;
+    // hspd_dir = right - left;
+    
+    if (hspd > spd) {
+        hspd = spd;
+    }
+    else if (hspd < -spd) {
+        hspd = -spd;
+    }
 }
-
-if (left) {
-    hspd = -spd;
+else {
+    //hspd = 0;
+    apply_friction(acc);
 }
 
 if (hspd != 0) {
  image_xscale = sign(hspd);
-}
-
-if (!right && !left) {
-    hspd = 0;
 }
 
 move(Solid);
@@ -68,6 +90,7 @@ if (falling && wasnt_wall && is_wall) {
         y -= 1;
     }
     
+    sprite_index = spr_player_ledge_grab;
     state = ledge_grab_state;
 }
 

@@ -25,6 +25,7 @@
   <scripts name="scripts">
     <scripts name="Utils">
       <script>scripts\move.gml</script>
+      <script>scripts\apply_friction.gml</script>
     </scripts>
     <scripts name="States">
       <scripts name="Player">
