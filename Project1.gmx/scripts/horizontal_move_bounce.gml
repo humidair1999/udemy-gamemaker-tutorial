@@ -1,4 +1,4 @@
-///move(collision_object)
+///horizontal_move_bounce(collision_object)
 
 var collision_object = argument0;
 
@@ -10,13 +10,10 @@ if (place_meeting(x + hspd, y, collision_object)) {
         x += sign(hspd);
     }
 
-    // when we break out of the while loop, this means a collision
-    // has occurred and the speed should drop to 0
     hspd = -(hspd / 2);
 }
-else {
-    x += hspd;
-}
+
+x += hspd;
 
 if (place_meeting(x, y + vspd, collision_object)) {
     while (!place_meeting(x, y + sign(vspd), collision_object)) {
@@ -25,6 +22,6 @@ if (place_meeting(x, y + vspd, collision_object)) {
 
     vspd = 0;
 }
-else {
-    y += vspd;
-}
+
+y += vspd;
+
