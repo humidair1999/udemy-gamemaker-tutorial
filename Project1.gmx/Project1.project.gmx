@@ -18,6 +18,8 @@
     <sprites name="Level">
       <sprite>sprites\spr_solid</sprite>
       <sprite>sprites\spr_dirt</sprite>
+      <sprite>sprites\spr_entrance</sprite>
+      <sprite>sprites\spr_exit</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_snake</sprite>
@@ -47,6 +49,7 @@
         <script>scripts\move_state.gml</script>
         <script>scripts\ledge_grab_state.gml</script>
         <script>scripts\hurt_state.gml</script>
+        <script>scripts\exit_state.gml</script>
       </scripts>
       <scripts name="Snake">
         <script>scripts\snake_move_right_state.gml</script>
@@ -70,6 +73,8 @@
     <objects name="Level">
       <object>objects\Solid</object>
       <object>objects\Dirt</object>
+      <object>objects\Entrance</object>
+      <object>objects\Exit</object>
     </objects>
     <objects name="Enemies">
       <object>objects\EnemyParent</object>
@@ -81,9 +86,9 @@
       <object>objects\Blood</object>
     </objects>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
+    <room>rooms\rm_two</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
