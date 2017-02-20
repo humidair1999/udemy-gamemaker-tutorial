@@ -31,6 +31,37 @@ display_set_gui_size(view_wview[0], view_hview[0]);
 
 hp = 1;
 maxhp = 3;
+
+audio_em = audio_emitter_create();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// play background music
+
+audio_emitter_gain(audio_em, 0.1);
+
+audio_play_sound_on(audio_em, snd_music, true, 10);
+
 </string>
           </argument>
         </arguments>

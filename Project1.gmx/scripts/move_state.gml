@@ -58,7 +58,16 @@ else {
 }
 
 if (hspd != 0) {
- image_xscale = sign(hspd);
+    image_xscale = sign(hspd);
+}
+
+// add 1 to (y + vspd) to over-predict if there will be a vertical
+// collision below us, ensuring the "step" sound will play
+if (place_meeting(x, y + vspd + 1, Solid) && vspd > 0) {
+    audio_emitter_pitch(audio_em, random_range(0.8, 1.2));
+    audio_emitter_gain(audio_em, 0.2);
+    
+    audio_play_sound_on(audio_em, snd_step, false, 0.6);
 }
 
 move(Solid);
@@ -87,6 +96,12 @@ if (falling && wasnt_wall && is_wall) {
     }
     
     sprite_index = spr_player_ledge_grab;
+    
     state = ledge_grab_state;
+    
+    audio_emitter_pitch(audio_em, 1.5);
+    audio_emitter_gain(audio_em, 0.1);
+    
+    audio_play_sound_on(audio_em, snd_step, false, 0.6);
 }
 
