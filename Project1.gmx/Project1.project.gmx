@@ -49,6 +49,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_dirt</background>
+    <background>background\bg_menu</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -80,6 +81,10 @@
       </scripts>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_title</font>
+    <font>fonts\fnt_start</font>
+  </fonts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\Player</object>
@@ -103,6 +108,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
   </rooms>
