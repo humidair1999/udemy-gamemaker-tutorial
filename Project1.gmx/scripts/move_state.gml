@@ -1,13 +1,7 @@
-/// Control the player
+///move_state()
 
 // How to call an external script located in scripts/
 // control_player();
-
-var up = keyboard_check(vk_up);
-var up_released = keyboard_check_released(vk_up);
-var right = keyboard_check(vk_right);
-var down = keyboard_check(vk_down);
-var left = keyboard_check(vk_left);
 
 if (!place_meeting(x, y + 1, Solid)) {
     vspd += grav;

@@ -1,5 +1,4 @@
-var up = keyboard_check(vk_up);
-var down = keyboard_check(vk_down);
+//ledge_grab_state()
 
 if (down) {
     state = move_state;
