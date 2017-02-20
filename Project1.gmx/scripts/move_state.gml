@@ -33,6 +33,8 @@ else {
 
     if (up) {
         vspd = -16;
+        
+        audio_play_sound(snd_jump, 5, false);
     }
     else {
         vspd = 0;

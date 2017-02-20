@@ -112,6 +112,8 @@ if (above_enemy &amp;&amp; (falling || state = ledge_grab_state)) {
     }
     
     vspd = -(16 / 1.5);
+    
+    audio_play_sound(snd_step, 6, false);
 }
 else {
     // take damage
@@ -158,6 +160,10 @@ if (up) {
     y = yprevious;
     
     state = exit_state;
+    
+    audio_stop_sound(snd_jump);
+    
+    audio_play_sound(snd_exit, 4, false);
 }
 </string>
           </argument>
