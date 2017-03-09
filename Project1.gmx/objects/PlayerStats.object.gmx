@@ -31,6 +31,10 @@ display_set_gui_size(view_wview[0], view_hview[0]);
 
 hp = 1;
 maxhp = 3;
+sapphires = 0;
+score = 0;
+highscore = 0;
+time = 0;
 
 audio_em = audio_emitter_create();
 
@@ -67,6 +71,8 @@ if (gamepad_is_connected(0)) {
 if (start == true &amp;&amp; room == rm_menu) {
     room_goto(rm_one);
 }
+
+time += 1;
 </string>
           </argument>
         </arguments>
@@ -150,6 +156,18 @@ switch(room) {
         for (var i = 0; i &lt; hp; i++) {
             draw_sprite_ext(spr_heart, 0, 24 + i * 36, 20, 1, 1, 0, c_white, 1);
         }
+        
+        var sapphires_string = "x" + string(sapphires);
+        
+        draw_set_halign(fa_right);
+        draw_set_font(fnt_start);
+        draw_text_colour(view_wview[0] - 16, 8, sapphires_string, c_white, c_white, c_white, c_white, 1.0);
+        
+        var text_width = string_width(sapphires_string);
+        
+        draw_sprite(spr_sapphire_gui, 0, view_wview[0] - 32 - text_width, 22);
+        
+        draw_text_colour(view_wview[0] / 2, 8, string(floor(time / room_speed)), c_white, c_white, c_white, c_white, 1.0);
 
         break;
 }
