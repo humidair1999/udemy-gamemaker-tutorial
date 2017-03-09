@@ -164,6 +164,10 @@ else {
         
         if (instance_exists(PlayerStats)) {
             PlayerStats.hp -= 1;
+            
+            if (PlayerStats.hp &lt;= 0) {
+                room_goto(rm_menu);
+            }
         }
     }
     

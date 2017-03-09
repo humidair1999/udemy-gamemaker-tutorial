@@ -71,8 +71,6 @@ if (gamepad_is_connected(0)) {
 if (start == true &amp;&amp; room == rm_menu) {
     room_goto(rm_one);
 }
-
-time += 1;
 </string>
           </argument>
         </arguments>
@@ -146,6 +144,13 @@ switch(room) {
         draw_text_colour(room_width / 2, room_height - 54, str, c_white, c_white, c_white, c_white, 1.0);
 
         break;
+    case rm_highscore:
+        draw_set_font(fnt_start);
+        
+        draw_text_colour(view_wview[0] / 2, 36, "Your score was:" + string(score), c_white, c_white, c_white, c_white, 1.0);
+        draw_text_colour(view_wview[0] / 2, 64, "The high score is:" + string(highscore), c_white, c_white, c_white, c_white, 1.0);
+    
+        break;
     default:
         // draw heart outlines (damage states)
         for (var i = 0; i &lt; maxhp; i++) {
@@ -167,11 +172,38 @@ switch(room) {
         
         draw_sprite(spr_sapphire_gui, 0, view_wview[0] - 32 - text_width, 22);
         
+        time += 1;
+        
         draw_text_colour(view_wview[0] / 2, 8, string(floor(time / room_speed)), c_white, c_white, c_white, c_white, 1.0);
 
         break;
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// end the game
+
+game_end();
 </string>
           </argument>
         </arguments>
