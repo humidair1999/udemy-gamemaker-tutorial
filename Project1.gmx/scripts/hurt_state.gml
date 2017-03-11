@@ -21,7 +21,7 @@ if (hspd == 0 && vspd == 0) {
     image_blend = c_white;
     
     if (PlayerStats.hp <= 0) {
-        score = 0;
+        PlayerStats.sapphires = 0;
         
         PlayerStats.hp = PlayerStats.maxhp;
         
