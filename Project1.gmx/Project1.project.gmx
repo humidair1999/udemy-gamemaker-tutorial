@@ -49,6 +49,9 @@
       <sprite>sprites\spr_blood</sprite>
       <sprite>sprites\spr_sapphire_chunk</sprite>
     </sprites>
+    <sprites name="Bosses">
+      <sprite>sprites\spr_boss</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_dirt</background>
@@ -82,6 +85,9 @@
         <script>scripts\spider_idle_state.gml</script>
         <script>scripts\spider_jump_state.gml</script>
       </scripts>
+      <scripts name="Boss">
+        <script>scripts\boss_idle_state.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -110,6 +116,9 @@
     <objects name="Effects">
       <object>objects\Blood</object>
       <object>objects\SapphireChunk</object>
+    </objects>
+    <objects name="Bosses">
+      <object>objects\Boss</object>
     </objects>
   </objects>
   <rooms name="rooms">
