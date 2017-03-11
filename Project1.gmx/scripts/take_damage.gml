@@ -12,15 +12,11 @@ if (state != hurt_state) {
     vspd = -12;
     hspd = (sign(x - other.x) * 10);
     
+    if (instance_exists(PlayerStats)) {
+        PlayerStats.hp -= 1;
+    }
+    
     state = hurt_state;
     
     move(Solid);
-    
-    if (instance_exists(PlayerStats)) {
-        PlayerStats.hp -= 1;
-        
-        if (PlayerStats.hp <= 0) {
-            room_goto(rm_menu);
-        }
-    }
 }
