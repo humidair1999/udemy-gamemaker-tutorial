@@ -34,6 +34,7 @@
       <sprite>sprites\spr_dirt_top</sprite>
       <sprite>sprites\spr_dirt_edge</sprite>
       <sprite>sprites\spr_sapphire</sprite>
+      <sprite>sprites\spr_lava</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_snake</sprite>
@@ -49,6 +50,7 @@
     <sprites name="Effects">
       <sprite>sprites\spr_blood</sprite>
       <sprite>sprites\spr_sapphire_chunk</sprite>
+      <sprite>sprites\spr_lava_bubble</sprite>
     </sprites>
     <sprites name="Bosses">
       <sprite>sprites\spr_boss</sprite>
@@ -73,6 +75,7 @@
         <script>scripts\hurt_state.gml</script>
         <script>scripts\exit_state.gml</script>
         <script>scripts\get_input.gml</script>
+        <script>scripts\take_damage.gml</script>
       </scripts>
       <scripts name="Snake">
         <script>scripts\snake_move_right_state.gml</script>
@@ -90,6 +93,8 @@
         <script>scripts\boss_idle_state.gml</script>
         <script>scripts\boss_lift_state.gml</script>
         <script>scripts\boss_chase_state.gml</script>
+        <script>scripts\boss_smash_state.gml</script>
+        <script>scripts\boss_stall_state.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -109,6 +114,7 @@
       <object>objects\Exit</object>
       <object>objects\Background</object>
       <object>objects\Sapphire</object>
+      <object>objects\Lava</object>
     </objects>
     <objects name="Enemies">
       <object>objects\EnemyParent</object>
@@ -119,6 +125,7 @@
     <objects name="Effects">
       <object>objects\Blood</object>
       <object>objects\SapphireChunk</object>
+      <object>objects\LavaBubble</object>
     </objects>
     <objects name="Bosses">
       <object>objects\Boss</object>
@@ -129,8 +136,8 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_highscore</room>
     <room>rooms\rm_one</room>
-    <room>rooms\rm_boss</room>
     <room>rooms\rm_two</room>
+    <room>rooms\rm_boss</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

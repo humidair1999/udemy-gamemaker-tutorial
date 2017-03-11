@@ -29,7 +29,7 @@
 
 display_set_gui_size(view_wview[0], view_hview[0]);
 
-hp = 1;
+hp = 3;
 maxhp = 3;
 sapphires = 0;
 score = 0;
