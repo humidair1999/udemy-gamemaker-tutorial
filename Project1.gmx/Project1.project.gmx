@@ -14,6 +14,7 @@
     <sound>sound\snd_spider</sound>
     <sound>sound\snd_step</sound>
     <sound>sound\snd_music</sound>
+    <sound>sound\snd_boss_music</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -87,6 +88,8 @@
       </scripts>
       <scripts name="Boss">
         <script>scripts\boss_idle_state.gml</script>
+        <script>scripts\boss_lift_state.gml</script>
+        <script>scripts\boss_chase_state.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -121,10 +124,12 @@
       <object>objects\Boss</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
     <room>rooms\rm_highscore</room>
     <room>rooms\rm_one</room>
+    <room>rooms\rm_boss</room>
     <room>rooms\rm_two</room>
   </rooms>
   <help>
